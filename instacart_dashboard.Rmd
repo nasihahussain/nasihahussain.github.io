@@ -1,0 +1,82 @@
+---
+title: "Instacart Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library("p8105.datasets")
+library(plotly)
+library(viridis)
+```
+
+```{r}
+data("instacart")
+
+instacart_data =
+  instacart %>% 
+  select(order_dow, order_hour_of_day, product_name, aisle, department, add_to_cart_order, reordered) %>% 
+  mutate(order_dow = factor(order_dow, levels = 0:6, labels = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")))
+
+set.seed(123)
+sample_size = 100
+instacart_randomsample <- instacart_data %>%
+  sample_n(sample_size)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r, echo=FALSE}
+instacart_randomsample %>%
+  count(department) %>%
+  plot_ly(x = ~reorder(department, n), y = ~n, color = ~department, type = "bar", colors = "viridis") %>%
+  layout(
+    title = "Total Orders by Department",
+    xaxis = list(title = "Department", tickangle = -45),
+    yaxis = list(title = "Total Orders")
+  )
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r, echo=FALSE}
+instacart_randomsample %>%
+  plot_ly(x = ~factor(order_hour_of_day), y = ~add_to_cart_order, type = "box") %>%
+  layout(
+    title = list(
+      text = "Distribution of Add-to-Cart Order by Hour of Day",
+      font = list(size = 14)
+    ),
+    xaxis = list(title = "Hour of Day"),
+    yaxis = list(title = "Add-to-Cart Order")
+  )
+```
+
+### Chart C
+
+```{r, echo=FALSE}
+instacart_randomsample %>%
+  group_by(order_dow) %>%
+  summarize(avg_add_to_cart_order = mean(add_to_cart_order)) %>%
+  plot_ly(x = ~order_dow, y = ~avg_add_to_cart_order, type = "scatter", mode = "lines+markers") %>%
+  layout(
+    title = list(
+      text = "Average Add-to-Cart Order by Day of the Week",
+      font = list(size = 14)
+      ),
+    xaxis = list(title = "Day of the Week"),
+    yaxis = list(title = "Average Add-to-Cart Order")
+  )
+```
+
