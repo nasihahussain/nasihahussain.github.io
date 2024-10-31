@@ -7,11 +7,11 @@ output:
  
 ---
 
-**Welcome to my Page!**
+# Welcome to my Page!
 
-Hello! My name is Nasiha Hussain. Hope you enjoy viewing my website and learning more about me. 
+Hello! My name is Nasiha Hussain. Hope you enjoy viewing my website and learning more about me. This website was created for the P8105 data science class for homework 4. 
 
-**Links on this Website**
+# Links on this Website
 
 [About Me](aboutme.html)
 
