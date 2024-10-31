@@ -7,15 +7,15 @@ output:
   
 ---
 
-## **Introduction**
+## Introduction
 
 My name is Nasiha Hussain and I am a second year MPH student at Columbia University's Mailman School of Public Health. I am currently in the SMS department, working on a certificate in Chronic Disease Epidemiology. I am originally from Seattle, WA. I love reading, hiking, and exploring the city!
 
-## **Education**
+## Education
 
 I did my Undergraduate Degree at the University of Washington and received a Bachelor of Science in Psychology and a Bachelor of Arts in Public Health. At the University of Washington, I did research on stroke awareness and health outcomes, as well as on cancer care outcomes in a pediatric facility.
 
-## **Professional Experience**
+## Professional Experience
 
 After undergrad, I worked in Clinical Research at Seattle Children's Hospital and at Providence Medical Center for about 5 years before moving to New York City for my degree here at Columbia University. My work in Clinical Research started out with COVID-19 clinical trials. In addition to this, I also lead trials on substance use disorder, cardiovascular disease, and more. Before starting in Clinical Research, I worked in hospital based academic research in order to improve access to healthcare and health outcomes using UX principles.
 
